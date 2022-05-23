@@ -32,3 +32,19 @@ sudo systemctl reload nginx
 ```
 systemctl status nginx
 ```
+### **Windows Config Example**
+```
+events {}
+http {
+    server {
+        listen              443 ssl;
+        ssl_certificate     "C:/Users/Administrator/Downloads/nginx-1.20.2/nginx-1.20.2/ssl/nginx-selfsigned.crt";
+        ssl_certificate_key "C:/Users/Administrator/Downloads/nginx-1.20.2/nginx-1.20.2/ssl/nginx-selfsigned.key";
+        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+
+        location / {
+            proxy_pass http://127.0.0.1:5000;
+        }
+    }
+}
+```
